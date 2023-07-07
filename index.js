@@ -1,4 +1,4 @@
-// Funzione per generare le card dei prodotti
+// Card dei prodotti
 function generateProductCard(product) {
     const { _id, name, description, brand, imageUrl, price } = product;
   
@@ -6,7 +6,7 @@ function generateProductCard(product) {
     card.classList.add('col-sm-6', 'col-md-6', 'mb-4');
   
     card.innerHTML = `
-    <div class="card bg-danger product-card h-100">
+    <div id="cardProd" class="card bg-danger product-card h-100">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="${imageUrl}" class="card-img-top" alt="${name}">
@@ -28,7 +28,7 @@ function generateProductCard(product) {
     return card;
   }
   
-  // Funzione per aggiornare la homepage con le card dei prodotti
+  // homepage con card 
   function updateHomepage(products) {
     const productList = document.getElementById('productList');
     productList.innerHTML = '';
@@ -38,16 +38,16 @@ function generateProductCard(product) {
       productList.appendChild(card);
     });
   
-    // Aggiungi event listener per i pulsanti di modifica
+    // listner di modifica
     const editBtns = document.querySelectorAll('.editBtn');
     editBtns.forEach(btn => btn.addEventListener('click', editProduct));
   
-    // Aggiungi event listener per i pulsanti di eliminazione
+    // listener  di eliminazione
     const deleteBtns = document.querySelectorAll('.deleteBtn');
     deleteBtns.forEach(btn => btn.addEventListener('click', deleteProduct));
   }
   
-  // Funzione per fetch dei prodotti
+  // fetch dei prodotti
   function fetchProducts() {
     fetch('https://striveschool-api.herokuapp.com/api/product/', {
       headers: {
@@ -61,6 +61,6 @@ function generateProductCard(product) {
     .catch(error => console.log(error));
   }
   
-  // Al caricamento della pagina, recupera i prodotti
+  // caricamento  pagina
   fetchProducts();
   
