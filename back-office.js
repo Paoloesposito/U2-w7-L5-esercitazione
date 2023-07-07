@@ -1,4 +1,4 @@
-// Funzione per fetch dei prodotti
+// fetch dei prodotti
 function fetchProducts() {
   fetch('https://striveschool-api.herokuapp.com/api/product/', {
     headers: {
@@ -29,18 +29,18 @@ function fetchProducts() {
       productList.appendChild(row);
     });
 
-    // Aggiungi event listener per i pulsanti di modifica
+    // listener di modifica
     const editBtns = document.querySelectorAll('.editBtn');
     editBtns.forEach(btn => btn.addEventListener('click', editProduct));
 
-    // Aggiungi event listener per i pulsanti di eliminazione
+    // listener  di eliminazione
     const deleteBtns = document.querySelectorAll('.deleteBtn');
     deleteBtns.forEach(btn => btn.addEventListener('click', deleteProduct));
   })
   .catch(error => console.log(error));
 }
 
-// Funzione per creare un nuovo prodotto
+// creazione nuovo prodotto
 function createProduct(event) {
   event.preventDefault();
 
@@ -75,7 +75,7 @@ function createProduct(event) {
   .catch(error => console.log(error));
 }
 
-// Funzione per eliminare un prodotto
+// Elimina prodotto
 function deleteProduct(event) {
   const productId = event.target.dataset.id;
 
@@ -92,21 +92,15 @@ function deleteProduct(event) {
   .catch(error => console.log(error));
 }
 
-// Funzione per modificare un prodotto
+// modificare prodotto
 function editProduct(event) {
   const productId = event.target.dataset.id;
-
-  // Implementa qui la logica per modificare un prodotto
   console.log('Modifica prodotto:', productId);
 }
-
-// Event listener per il submit del form
 document.getElementById('productForm').addEventListener('submit', createProduct);
 
-// Event listener per il pulsante di reset
 document.getElementById('resetBtn').addEventListener('click', function() {
   document.getElementById('productForm').reset();
 });
 
-// Recupera i prodotti al caricamento della pagina
 fetchProducts();
