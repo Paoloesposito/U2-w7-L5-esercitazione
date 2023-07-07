@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back Office</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mt-5">
+      <h1>Back Office</h1>
+      <form id="productForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Descrizione</label>
+          <textarea class="form-control" id="description" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="brand" class="form-label">Marca</label>
+          <input type="text" class="form-control" id="brand" required />
+        </div>
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">URL Immagine</label>
+          <input type="text" class="form-control" id="imageUrl" required />
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Prezzo</label>
+          <input type="number" class="form-control" id="price" required />
+        </div>
+        <button type="submit" class="btn btn-primary" id="createBtn">
+          Crea Prodotto
+        </button>
+        <button type="button" class="btn btn-danger" id="resetBtn">
+          Reset
+        </button>
+      </form>
+
+      <h2 class="mt-5">Prodotti</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrizione</th>
+            <th>Marca</th>
+            <th>Immagine</th>
+            <th>Prezzo</th>
+            <th>Azioni</th>
+          </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+      </table>
+    </div>
+
+    <script src="back-office.js"></script>
+  </body>
+</html>
